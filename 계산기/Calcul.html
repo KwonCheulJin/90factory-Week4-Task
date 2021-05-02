@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단 계산기</title>
+
+  </head>
+
+  <body>
+    <script>
+
+      function calculator() {
+        try {
+          const num1 = Number(prompt('숫자를 입력해주세요'));
+          console.log(num1);
+          const num2 = Number(prompt('숫자를 입력해주세요'));
+          console.log(num2);
+          const calcul = prompt('연산기호를 입력해주세요(+, -, *, /, %)');
+
+          if (isNaN(num1) === true && isNaN(num2) === true) {
+            throw new Error('문자를 입력했습니다. 다시 입력해주세요');
+          } else if (calcul === '+' || calcul === '-' || calcul === '*' || calcul === '/' || calcul === '%') {
+            if (calcul === '+') {
+              alert(num1 + num2);
+              window.location.reload();
+            } else if (calcul === '-') {
+              alert(num1 - num2);
+              window.location.reload();
+            } else if (calcul === '*') {
+              alert(num1 * num2);
+              window.location.reload();
+            } else if (calcul === '/') {
+              alert(num1 / num2);
+              window.location.reload();
+            } else if (calcul === '%') {
+              alert(num1 % num2);
+              window.location.reload();
+            }
+          } else {
+            calculCheck();
+
+          }
+        } catch (e) {
+          console.error(e.message);
+          calculCheck();
+
+        }
+      }
+
+      function calculCheck() {
+        let check = confirm('잘못입력하셨습니다. 다시 하시겠습니까?')
+        if (check === true) {
+          window.location.reload();
+        } else {
+          alert('종료합니다')
+        }
+      }
+
+      // calculator();
+
+
+
+      function calculSecond() {
+        const num1 = Number(prompt('숫자를 입력해주세요'));
+        console.log(isNaN(num1));
+        const num2 = Number(prompt('숫자를 입력해주세요'));
+        console.log(isNaN(num2));
+        const calcul = prompt('연산기호를 입력해주세요(+, -, *, /)');
+
+
+        if (Number.isNaN(num1) === false && Number.isNaN(num2) === false) {
+          console.log("ok")
+          if (calcul === '+' || calcul === '-' || calcul === '*' || calcul === '/') {
+            if (calcul === '+') {
+              alert(num1 + num2);
+              window.location.reload();
+            } else if (calcul === '-') {
+              alert(num1 - num2);
+              window.location.reload();
+            } else if (calcul === '*') {
+              alert(num1 * num2);
+              window.location.reload();
+            } else if (calcul === '/') {
+              alert(num1 / num2);
+              window.location.reload();
+            }
+          } else {
+            alert('문자를 입력했습니다. 다시 입력해주세요');
+            calculCheck();
+          }
+        } else {
+          alert('문자를 입력했습니다. 다시 입력해주세요');
+          calculCheck();
+
+        }
+
+      }
+
+      calculSecond();
+
+    </script>
+  </body>
+
+</html>
